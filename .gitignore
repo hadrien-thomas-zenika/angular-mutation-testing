@@ -49,4 +49,4 @@ Thumbs.db
 
 # stryker temp files
 .stryker-tmp
-/reports/
+reports
