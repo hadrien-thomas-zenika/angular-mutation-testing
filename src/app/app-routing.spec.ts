@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 describe('AppRouting', () => {
-	/*
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [
@@ -35,5 +34,5 @@ describe('AppRouting', () => {
 		tick();
 		const pathAfterAnyNavigation: string = location.path();
 		expect(pathAfterAnyNavigation).toEqual('/');
-	}));*/
+	}));
 });

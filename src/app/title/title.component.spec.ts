@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TitleComponent } from './title.component';
+import { UpperCaseService } from '../upper-case.service';
 
 describe('TitleComponent', () => {
 	let component: TitleComponent;
@@ -8,7 +9,8 @@ describe('TitleComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [TitleComponent]
+			declarations: [TitleComponent],
+			providers: [UpperCaseService]
 		})
 		.compileComponents();
 	});
@@ -18,9 +20,11 @@ describe('TitleComponent', () => {
 		component = fixture.componentInstance;
 	});
 
-	it('should bring coverage to 100%', () => {
+	it('should call', () => {
+		const upperCaseService: UpperCaseService = TestBed.inject(UpperCaseService);
+		spyOn(upperCaseService, 'toUpperCase').and.returnValue('TITLE');
 		fixture.detectChanges();
-		expect(true).toBe(true);
+		expect(fixture.nativeElement.querySelector('p').innerText.trim()).toBe('TITLE');
 	});
 
 });

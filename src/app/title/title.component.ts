@@ -17,7 +17,8 @@ export class TitleComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.TITLE = this.upperCaseService.toUpperCase(this.title);
+		const upperCasedTitle: string = this.upperCaseService.toUpperCase(this.title);
+		this.TITLE = upperCasedTitle;
 	}
 
 }

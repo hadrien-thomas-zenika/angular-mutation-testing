@@ -11,7 +11,7 @@ describe('UpperCaseService', () => {
 	});
 
 	it('should bring coverage to 100%', () => {
-		service.toUpperCase(null);
-		expect(true).toBe(true);
+		const upperCasedString: string = service.toUpperCase(null);
+		expect(upperCasedString).toBe('THIS IS A TITLE');
 	});
 });

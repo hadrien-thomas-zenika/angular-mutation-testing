@@ -11,7 +11,10 @@ describe('LogServiceService', () => {
 	});
 
 	it('should bring coverage to 100%', () => {
-		service.log(null);
-		expect(true).toBe(true);
+		spyOn(console, 'log');
+
+		service.log('test');
+
+		expect(console.log).toHaveBeenCalledWith('test');
 	});
 });

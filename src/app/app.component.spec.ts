@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { LogService } from './log.service';
 
 describe('AppComponent', () => {
 	let component: AppComponent;
@@ -7,7 +8,8 @@ describe('AppComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [AppComponent]
+			declarations: [AppComponent],
+			providers: [LogService]
 		})
 		.compileComponents();
 	});
@@ -18,7 +20,10 @@ describe('AppComponent', () => {
 	});
 
 	it('should bring coverage to 100%', () => {
+		const logService:LogService = TestBed.inject(LogService);
+		spyOn(logService, 'log');
 		fixture.detectChanges();
-		expect(true).toBe(true);
+		expect(component.title).toEqual('This is a title');
+		expect(logService.log).toHaveBeenCalledWith('Init app component');
 	});
 });
